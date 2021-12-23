@@ -1,5 +1,7 @@
 package br.com.todo.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +27,11 @@ public class TodoController {
 	@PostMapping
 	public Todo save(@RequestBody Todo todo) {
 		return repository.save(todo);
+	}
+	
+	@GetMapping
+	public List<Todo> getAll() {
+		return repository.findAll();
 	}
 
 	@GetMapping("{id}")
